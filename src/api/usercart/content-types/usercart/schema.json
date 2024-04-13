@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "usercarts",
+  "info": {
+    "singularName": "usercart",
+    "pluralName": "usercarts",
+    "displayName": "Usercart",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quantity": {
+      "required": true,
+      "type": "integer"
+    },
+    "amount": {
+      "type": "integer"
+    },
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product",
+      "mappedBy": "usercart"
+    },
+    "users_permissions_users": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "usercarts"
+    },
+    "userId": {
+      "type": "integer",
+      "required": true
+    }
+  }
+}
